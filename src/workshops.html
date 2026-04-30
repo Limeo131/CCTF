@@ -1,0 +1,127 @@
+---
+layout: base.njk
+title: Workshops & Talks
+navPage: workshops
+description: Free workshops, masterclasses, and industry talks at CCTF 2026 — covering acting, directing, stage design, improvisation, and career conversations.
+---
+
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <span class="page-hero__eyebrow">
+      <span class="material-symbols-outlined" style="font-size:0.85rem">school</span>
+      Free · 免费 · Registration Required
+    </span>
+    <h1 class="page-hero__title">Workshops & Talks</h1>
+    <p class="page-hero__subtitle">专业课程与行业对谈</p>
+    <p class="page-hero__desc">All workshops and industry talks are free and open to the public. Registration is required — seats are limited and first-come, first-served.</p>
+  </div>
+</div>
+
+<!-- Workshops -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-label">
+      <h2>Workshops | 工作坊</h2>
+      <p>Hands-on sessions with working professionals</p>
+    </div>
+
+    <div class="grid-3" style="gap:1.75rem">
+      {% for w in workshops %}
+        {% if w.type == "Workshop" or w.type == "Masterclass" %}
+        <div class="workshop-card {% if loop.index % 2 == 0 %}workshop-card--dark{% endif %}">
+          <span class="workshop-card__type">{{ w.type }}</span>
+          <h3 class="workshop-card__title">{{ w.title }}</h3>
+          <p class="workshop-card__subtitle">{{ w.subtitle }}</p>
+          <div style="margin-top:0.75rem;margin-bottom:1rem">
+            <div class="card__meta">
+              <span class="material-symbols-outlined" style="font-size:0.95rem;color:#7BC1E4">calendar_today</span>
+              {{ w.date }}
+            </div>
+            <div class="card__meta">
+              <span class="material-symbols-outlined" style="font-size:0.95rem;color:#7BC1E4">location_on</span>
+              {{ w.venue }}
+            </div>
+          </div>
+          <div style="margin-bottom:1.25rem">
+            <span class="badge badge-free">Free · 免费</span>
+          </div>
+          <div class="workshop-card__instructor">
+            <img src="{{ w.instructorImage }}"
+                 alt="{{ w.instructor }}"
+                 onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect width=%2240%22 height=%2240%22 fill=%22%23e7e8e9%22/></svg>'">
+            <div>
+              <div class="workshop-card__instructor-name">{{ w.instructor }}</div>
+              <div><a href="/workshops/{{ w.slug }}/" style="color:#7BC1E4;font-weight:600;font-size:0.78rem">View Details →</a></div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Industry Talks -->
+<section class="section bg-surface">
+  <div class="container">
+    <div class="section-label">
+      <h2>Industry Talks | 行业对谈</h2>
+      <p>Real experiences from working theatre professionals</p>
+    </div>
+
+    <div class="grid-2" style="gap:2rem">
+      {% for w in workshops %}
+        {% if w.type == "Industry Talk" %}
+        <div style="background:#fff;border-radius:1rem;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06)">
+          <div style="background:#0f172a;padding:2rem;display:flex;gap:1.25rem;align-items:center">
+            <img src="{{ w.instructorImage }}"
+                 alt="{{ w.instructor }}"
+                 style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top;background:#334155;flex-shrink:0"
+                 onerror="this.style.background='#334155';this.removeAttribute('src')">
+            <div>
+              <div style="font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.1rem;color:#fff">{{ w.instructor }}</div>
+              <div style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:0.2rem">{{ w.subtitle }}</div>
+            </div>
+          </div>
+          <div style="padding:1.75rem">
+            <span class="badge badge-dark" style="margin-bottom:0.75rem">{{ w.type }}</span>
+            <h3 style="font-family:'Epilogue',sans-serif;font-weight:700;font-size:1.15rem;color:#0f172a;margin-bottom:0.5rem">{{ w.title }}</h3>
+            <p style="font-size:0.9rem;color:#40484d;line-height:1.65;margin-bottom:1.25rem">{{ w.description | truncate(180) }}</p>
+            <div class="card__meta" style="margin-bottom:0.5rem">
+              <span class="material-symbols-outlined" style="font-size:0.95rem;color:#7BC1E4">calendar_today</span>
+              {{ w.date }}
+            </div>
+            <div style="margin-top:1.25rem;display:flex;gap:0.75rem;flex-wrap:wrap">
+              <a href="/workshops/{{ w.slug }}/" class="btn btn-outline btn-sm">Full Details | 详情</a>
+              <a href="{{ w.registrationUrl }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Register · 免费报名</a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- What to expect -->
+<section class="section-sm bg-surface-container-low">
+  <div class="container">
+    <div style="max-width:700px;margin:0 auto;text-align:center">
+      <h2 class="font-headline font-bold text-2xl text-dark mb-4">What to expect | 参与须知</h2>
+      <p style="color:#40484d;line-height:1.75;font-size:1rem;margin-bottom:1.5rem">Each session runs approximately 90–120 minutes and reserves 15–20 minutes at the end for Q&A. Come with questions and curiosity. Sessions are held in a bilingual (English/Chinese) environment.</p>
+      <p style="color:#40484d;line-height:1.75;font-size:1rem">每节课最后都将预留15–20分钟的Q&A时间，欢迎大家带着问题、带着好奇心来到现场。</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>All workshops are free | 全部课程免费</h2>
+    <p>Register early — seating is limited. 先到先得，座位有限。</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://raw.githubusercontent.com/Limeo131/CCTF/e003c78405538c443638d5c21bc0fb241cad37f4/pictures/ticket.png"
+         target="_blank" rel="noopener" class="btn btn-primary btn-lg">Register Now | 立即报名</a>
+      <a href="/programs/" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.3);color:#fff">See All Programs | 全部节目</a>
+    </div>
+  </div>
+</section>

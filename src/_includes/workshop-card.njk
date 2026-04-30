@@ -1,0 +1,33 @@
+{% macro workshopCard(w, dark) %}
+<div class="workshop-card {% if dark %}workshop-card--dark{% endif %}">
+  <span class="workshop-card__type">{{ w.type }}</span>
+  <h3 class="workshop-card__title">{{ w.title }}</h3>
+  <p class="workshop-card__subtitle">{{ w.subtitle }}</p>
+  <div style="margin-top:0.75rem;margin-bottom:1rem;">
+    <div class="card__meta">
+      <span class="material-symbols-outlined" style="font-size:0.95rem;color:#7BC1E4">calendar_today</span>
+      {{ w.date }}
+    </div>
+    <div class="card__meta">
+      <span class="material-symbols-outlined" style="font-size:0.95rem;color:#7BC1E4">location_on</span>
+      {{ w.venue }}
+    </div>
+  </div>
+  <div style="margin-bottom:1.25rem;">
+    <span class="badge badge-free">Free · 免费</span>
+  </div>
+  <div class="workshop-card__instructor">
+    <img
+      src="{{ w.instructorImage }}"
+      alt="{{ w.instructor }}"
+      onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect width=%2240%22 height=%2240%22 fill=%22%23e7e8e9%22/></svg>'"
+    >
+    <div>
+      <div class="workshop-card__instructor-name">{{ w.instructor }}</div>
+      <div class="workshop-card__instructor-date">
+        <a href="/workshops/{{ w.slug }}/" style="color:#7BC1E4;font-weight:600;font-size:0.78rem;">View Details →</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}

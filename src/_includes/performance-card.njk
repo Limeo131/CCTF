@@ -1,0 +1,26 @@
+{% macro perfCard(p) %}
+<div class="card">
+  <img
+    src="{{ p.image }}"
+    alt="{{ p.title }} poster"
+    class="card__image"
+    onerror="this.style.background='#e7e8e9';this.removeAttribute('src')"
+  >
+  <div class="card__body">
+    <span class="card__eyebrow">{{ p.category }}</span>
+    <h3 class="card__title">{{ p.title }} {{ p.titleCn }}</h3>
+    <p class="card__desc">{{ p.tagline }}</p>
+    <div class="card__meta">
+      <span class="material-symbols-outlined" style="font-size:0.95rem;color:#7BC1E4">calendar_today</span>
+      {{ p.dates }}
+    </div>
+    <div class="card__meta">
+      <span class="material-symbols-outlined" style="font-size:0.95rem;color:#7BC1E4">location_on</span>
+      {{ p.venue }}
+    </div>
+    <div style="margin-top:1.25rem;">
+      <a href="/performances/{{ p.slug }}/" class="btn btn-outline btn-sm">Details | 详情</a>
+    </div>
+  </div>
+</div>
+{% endmacro %}

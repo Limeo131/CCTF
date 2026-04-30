@@ -1,0 +1,304 @@
+---
+layout: base.njk
+title: Programs
+navPage: programs
+description: Full schedule for CCTF 2026 — five productions, a stand-up comedy special, workshops, and industry talks across Chicago from May 14–31.
+---
+
+<div class="page-hero">
+  <div class="page-hero__inner">
+    <span class="page-hero__eyebrow">
+      <span class="material-symbols-outlined" style="font-size:0.85rem">theater_comedy</span>
+      May 14 – 31, 2026
+    </span>
+    <h1 class="page-hero__title">Programs & Schedule</h1>
+    <p class="page-hero__subtitle">节目与日程 | 精彩纷呈</p>
+    <p class="page-hero__desc">Five productions, one stand-up comedy special, five workshops, and two industry talks — spread across four areas of Chicago.</p>
+  </div>
+</div>
+
+<!-- All Performances -->
+<section class="section bg-white">
+  <div class="container">
+    <div class="section-label">
+      <h2>Productions | 剧目</h2>
+      <p>Five works, four groups, one city</p>
+    </div>
+
+    {% for p in performances %}
+    <div class="perf-row">
+      <img src="{{ p.image }}"
+           alt="{{ p.title }} poster"
+           class="perf-row__image"
+           onerror="this.style.background='#e7e8e9';this.removeAttribute('src')">
+      <div>
+        <p class="perf-row__group">{{ p.group }} · {{ p.groupCn }}</p>
+        <h3 class="perf-row__title">{{ p.title }}</h3>
+        <p class="perf-row__title-cn">{{ p.titleCn }}</p>
+        <p class="perf-row__desc">{{ p.tagline }}<br><span style="opacity:0.7">{{ p.taglineCn }}</span></p>
+        <div class="perf-row__meta">
+          <span class="perf-row__meta-item">
+            <span class="material-symbols-outlined">calendar_today</span>{{ p.dates }}
+          </span>
+          <span class="perf-row__meta-item">
+            <span class="material-symbols-outlined">schedule</span>{{ p.times }}
+          </span>
+          <span class="perf-row__meta-item">
+            <span class="material-symbols-outlined">location_on</span>{{ p.venue }}
+          </span>
+        </div>
+        <div class="perf-row__actions">
+          <a href="/performances/{{ p.slug }}/" class="btn btn-outline btn-sm">Full Details | 详情</a>
+          <a href="{{ p.ticketUrl }}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Tickets | 购票</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
+
+<!-- Schedule by date -->
+<section class="section bg-surface">
+  <div class="container">
+    <div class="section-label">
+      <h2>Full Calendar | 完整日历</h2>
+      <p>Everything happening May 14–31</p>
+    </div>
+
+    <div style="max-width:860px">
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Wednesday, May 14
+          <span class="schedule-day__date-cn">五月十四日（周三）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">TBD</div>
+          <div>
+            <div class="schedule-item__title">Acting Workshop — Beginner Level</div>
+            <div class="schedule-item__meta">With Youna · UChicago / Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-free">Free · 免费</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Thursday, May 15
+          <span class="schedule-day__date-cn">五月十五日（周四）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">TBD</div>
+          <div>
+            <div class="schedule-item__title">Stage Design Masterclass</div>
+            <div class="schedule-item__meta">With Joonhee Park · UChicago / Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-free">Free · 免费</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Friday, May 16
+          <span class="schedule-day__date-cn">五月十六日（周五）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">TBD</div>
+          <div>
+            <div class="schedule-item__title">Directing Masterclass</div>
+            <div class="schedule-item__meta">With Joel Willison · UChicago / Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-free">Free · 免费</span></div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">TBD</div>
+          <div>
+            <div class="schedule-item__title">Industry Talk: A Young Asian Actor's Journey</div>
+            <div class="schedule-item__meta">Thomas Tran · UChicago / Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-free">Free · 免费</span></div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">Evening</div>
+          <div>
+            <div class="schedule-item__title">Stone, Sun, Red | 《石头，太阳，红色》</div>
+            <div class="schedule-item__meta">SAIC Chinese Theatre Club · SAIC / Loop</div>
+            <div class="schedule-item__badge"><span class="badge badge-primary">Performance</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Saturday, May 17
+          <span class="schedule-day__date-cn">五月十七日（周六）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">Evening</div>
+          <div>
+            <div class="schedule-item__title">Stone, Sun, Red | 《石头，太阳，红色》</div>
+            <div class="schedule-item__meta">SAIC Chinese Theatre Club · SAIC / Loop</div>
+            <div class="schedule-item__badge"><span class="badge badge-primary">Performance</span></div>
+          </div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">2pm & 7pm</div>
+          <div>
+            <div class="schedule-item__title">A Doll's House | 《玩偶之家》</div>
+            <div class="schedule-item__meta">UChicago Windmill · FXK Theater, Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-primary">Performance</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Sunday, May 18
+          <span class="schedule-day__date-cn">五月十八日（周日）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">7pm</div>
+          <div>
+            <div class="schedule-item__title">A Doll's House | 《玩偶之家》</div>
+            <div class="schedule-item__meta">UChicago Windmill · FXK Theater, Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-primary">Performance</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Monday, May 19
+          <span class="schedule-day__date-cn">五月十九日（周一）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">7pm</div>
+          <div>
+            <div class="schedule-item__title">A Doll's House | 《玩偶之家》</div>
+            <div class="schedule-item__meta">UChicago Windmill · FXK Theater, Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-primary">Performance</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Tuesday, May 20
+          <span class="schedule-day__date-cn">五月二十日（周二）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">7:30pm</div>
+          <div>
+            <div class="schedule-item__title">The Flying Heart | 《会飞的心》 — Stand-Up Comedy</div>
+            <div class="schedule-item__meta">Zhaoyang · FXK Theater, Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-dark">Special Performance</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Wednesday, May 21
+          <span class="schedule-day__date-cn">五月二十一日（周三）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">TBD</div>
+          <div>
+            <div class="schedule-item__title">Acting Workshop — Advanced Level</div>
+            <div class="schedule-item__meta">With Youna · UChicago / Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-free">Free · 免费</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Thursday–Saturday, May 22–24
+          <span class="schedule-day__date-cn">五月二十二至二十四日</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">Evening</div>
+          <div>
+            <div class="schedule-item__title">No Exit | 《禁闭》</div>
+            <div class="schedule-item__meta">UChicago Windmill · FXK Theater, Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-primary">Performance</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Friday, May 23
+          <span class="schedule-day__date-cn">五月二十三日（周五）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">TBD</div>
+          <div>
+            <div class="schedule-item__title">Improvisation Workshop</div>
+            <div class="schedule-item__meta">With Zilu · UChicago / Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-free">Free · 免费</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Thursday–Friday, May 29–30
+          <span class="schedule-day__date-cn">五月二十九至三十日</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">Evening</div>
+          <div>
+            <div class="schedule-item__title">Hidden Treasure | 《隐藏的宝藏》</div>
+            <div class="schedule-item__meta">Northwestern Eighthday · Evanston</div>
+            <div class="schedule-item__badge"><span class="badge badge-primary">Performance</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Friday, May 30
+          <span class="schedule-day__date-cn">五月三十日（周五）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">TBD</div>
+          <div>
+            <div class="schedule-item__title">Industry Talk: Playwriting with John Muggleton</div>
+            <div class="schedule-item__meta">John Muggleton · UChicago / Hyde Park</div>
+            <div class="schedule-item__badge"><span class="badge badge-free">Free · 免费</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-day">
+        <div class="schedule-day__header">
+          Saturday, May 31
+          <span class="schedule-day__date-cn">五月三十一日（周六）</span>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-item__time">2pm & 6pm</div>
+          <div>
+            <div class="schedule-item__title">An Act of Grace | 《杀了我》 — World Chinese Premiere</div>
+            <div class="schedule-item__meta">Dong Fang Drama Group · 360 Shore Dr, Burr Ridge</div>
+            <div class="schedule-item__badge"><span class="badge badge-dark">World Premiere</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2>Secure your seats | 立即购票</h2>
+    <p>Performances require tickets. Workshops and talks are free with registration.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="/tickets/" class="btn btn-primary btn-lg">Buy Tickets | 购票</a>
+      <a href="/workshops/" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.3);color:#fff">Free Workshops | 免费课程</a>
+    </div>
+  </div>
+</section>
