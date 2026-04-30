@@ -1,10 +1,9 @@
 module.exports = function(eleventyConfig) {
-  // Copy pictures directory to output
   eleventyConfig.addPassthroughCopy("src/pictures");
   eleventyConfig.addPassthroughCopy("src/css");
 
-  // Process .html files as Nunjucks
   return {
+    pathPrefix: "/CCTF/",
     dir: {
       input: "src",
       output: "_site",
